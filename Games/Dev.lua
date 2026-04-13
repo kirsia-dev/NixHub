@@ -4320,8 +4320,8 @@ local function Func_ArtifactAutomation()
 end
 
 local Window = Library:CreateWindow({
-	Title = "FourHub | SP",
-	Footer = "" .. assetName .. " | by jokerbiel13 | Sailor Piece | Version 1.5 Beta",
+	Title = "NixHub",
+	Footer = "" .. assetName .. " | By : Kirsia | Sailor Piece",
 	NotifySide = "Right",
     Icon = "rbxasset://91636465138754",
 	ShowCustomCursor = true,
