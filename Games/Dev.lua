@@ -1,4 +1,3 @@
---FH
 if getgenv().FourHub_Running then
     warn("Script already running!")
     return
@@ -4584,32 +4583,7 @@ local HttpService = game:GetService("HttpService")
 GB.Information.Right.Others:AddButton({ 
     Text = "Join Discord Server",
     Func = function()
-
-        local inviteCode = "cUwR4tUJv3"
-        local inviteLink = "https://discord.gg/" .. inviteCode
-
-        if request then
-            pcall(function()
-                request({
-                    Url = "http://127.0.0.1:6463/rpc?v=1",
-                    Method = "POST",
-                    Headers = {
-                        ["Content-Type"] = "application/json",
-                        ["Origin"] = "https://discord.com"
-                    },
-                    Body = HttpService:JSONEncode({
-                        cmd = "INVITE_BROWSER",
-                        args = { code = inviteCode },
-                        nonce = HttpService:GenerateGUID(false)
-                    })
-                })
-            end)
-        end
-
-        if setclipboard then
-            setclipboard(inviteLink)
-        end
-
+        setclipboard("https://discord.gg/nathub")
     end
 })
 
@@ -6594,7 +6568,7 @@ MenuGroup:AddButton("Unload", function()
 	Library:Unload()
 end)
 
-Library.ToggleKeybind = Options.MenuKeybind -- Allows you to have a custom keybind for the menu
+Library.ToggleKeybind = Options.MenuKeybind
 
 ThemeManager:SetLibrary(Library)
 SaveManager:SetLibrary(Library)
