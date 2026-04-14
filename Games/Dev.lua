@@ -4583,7 +4583,7 @@ local HttpService = game:GetService("HttpService")
 GB.Information.Right.Others:AddButton({ 
     Text = "Join Discord Server",
     Func = function()
-        setclipboard("https://discord.gg/nathub")
+        setclipboard("https://discord.gg/Bb7BEsYDM7")
     end
 })
 
