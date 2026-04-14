@@ -89,7 +89,7 @@ getgenv().FourHub_Running = true
 local Options = Library.Options
 local Toggles = Library.Toggles
 
-Library.ForceCheckbox = false -- Forces AddToggle to AddCheckbox
+Library.ForceCheckbox = false
 Library.ShowToggleFrameInKeybinds = true
 
 local omg = {
@@ -1071,7 +1071,7 @@ local function PostToWebhook()
         ["embeds"] = {{
             ["description"] = desc,
             ["color"] = tonumber("ffff77", 16),
-            ["footer"] = { ["text"] = string.format("FourHub â€¢ Session: %s â€¢ %s", GetSessionTime(), os.date("%x %X")) },
+            ["footer"] = { ["text"] = string.format("NixHub â€¢ Session: %s â€¢ %s", GetSessionTime(), os.date("%x %X")) },
             ["thumbnail"] = { ["url"] = catLink }
         }}
     }
@@ -1500,7 +1500,7 @@ local function SendSafetyWebhook(targetPlayer, reason)
                 { ["name"] = "Type", ["value"] = reason, ["inline"] = true },
                 { ["name"] = "ID", ["value"] = "```" .. game.JobId .. "```", ["inline"] = false }
             },
-            ["footer"] = { ["text"] = "FourHub â€¢ " .. os.date("%x %X") }
+            ["footer"] = { ["text"] = "NixHub â€¢ " .. os.date("%x %X") }
         }}
     }
 
@@ -1541,7 +1541,7 @@ local function CheckServerTypeSafety()
                             { ["name"] = "Username", ["value"] = "`" .. Plr.Name .. "`", ["inline"] = true },
                             { ["name"] = "JobId", ["value"] = "```" .. game.JobId .. "```", ["inline"] = false }
                         },
-                        ["footer"] = { ["text"] = "FourHub | Sailor Piece" }
+                        ["footer"] = { ["text"] = "NixHub | Sailor Piece" }
                     }}
                 }
                 task.spawn(function()
@@ -1557,7 +1557,7 @@ local function CheckServerTypeSafety()
             end
 
             task.wait(0.8)
-            Plr:Kick("\n[FourHub]\nReason: You are in a public server.")
+            Plr:Kick("\n[NixHub]\nReason: You are in a public server.")
         end
     end
 end
@@ -4320,7 +4320,7 @@ end
 
 local Window = Library:CreateWindow({
 	Title = "NixHub",
-	Footer = "" .. assetName .. " | By : Kirsia | Sailor Piece",
+	Footer = "" .. assetName .. " | By : Kirsia | Sailor Piece | Version 1.0",
 	NotifySide = "Right",
     Icon = "rbxasset://91636465138754",
 	ShowCustomCursor = true,
