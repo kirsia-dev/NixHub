@@ -1,4 +1,3 @@
---FH
 if getgenv().FourHub_Running then
     warn("Script already running!")
     return
@@ -1072,7 +1071,7 @@ local function PostToWebhook()
         ["embeds"] = {{
             ["description"] = desc,
             ["color"] = tonumber("ffff77", 16),
-            ["footer"] = { ["text"] = string.format("FourHub â€¢ Session: %s â€¢ %s", GetSessionTime(), os.date("%x %X")) },
+            ["footer"] = { ["text"] = string.format("NixHub â€¢ Session: %s â€¢ %s", GetSessionTime(), os.date("%x %X")) },
             ["thumbnail"] = { ["url"] = catLink }
         }}
     }
@@ -1501,7 +1500,7 @@ local function SendSafetyWebhook(targetPlayer, reason)
                 { ["name"] = "Type", ["value"] = reason, ["inline"] = true },
                 { ["name"] = "ID", ["value"] = "```" .. game.JobId .. "```", ["inline"] = false }
             },
-            ["footer"] = { ["text"] = "FourHub â€¢ " .. os.date("%x %X") }
+            ["footer"] = { ["text"] = "NixHub â€¢ " .. os.date("%x %X") }
         }}
     }
 
@@ -1542,7 +1541,7 @@ local function CheckServerTypeSafety()
                             { ["name"] = "Username", ["value"] = "`" .. Plr.Name .. "`", ["inline"] = true },
                             { ["name"] = "JobId", ["value"] = "```" .. game.JobId .. "```", ["inline"] = false }
                         },
-                        ["footer"] = { ["text"] = "FourHub | Sailor Piece" }
+                        ["footer"] = { ["text"] = "NixHub | Sailor Piece" }
                     }}
                 }
                 task.spawn(function()
@@ -1558,7 +1557,7 @@ local function CheckServerTypeSafety()
             end
 
             task.wait(0.8)
-            Plr:Kick("\n[FourHub]\nReason: You are in a public server.")
+            Plr:Kick("\n[NixHub]\nReason: You are in a public server.")
         end
     end
 end
@@ -1573,7 +1572,7 @@ local function CheckPlayerForSafety(targetPlayer)
         SendSafetyWebhook(targetPlayer, "Player Join Detection")
         
         task.wait(0.5) 
-        Plr:Kick("\n[FourHub]\nReason: A player joined the server (" .. targetPlayer.Name .. ")")
+        Plr:Kick("\n[NixHub]\nReason: A player joined the server (" .. targetPlayer.Name .. ")")
         return
     end
 
@@ -1583,7 +1582,7 @@ local function CheckPlayerForSafety(targetPlayer)
             SendSafetyWebhook(targetPlayer, "Moderator Detection (Rank: " .. tostring(rank) .. ")")
             
             task.wait(0.5)
-            Plr:Kick("\n[FourHub]\nReason: Moderator Detected (" .. targetPlayer.Name .. ")")
+            Plr:Kick("\n[NixHub]\nReason: Moderator Detected (" .. targetPlayer.Name .. ")")
         end
     end
 end
@@ -4320,10 +4319,10 @@ local function Func_ArtifactAutomation()
 end
 
 local Window = Library:CreateWindow({
-	Title = "FourHub | SP",
-	Footer = "" .. assetName .. " | by jokerbiel13 | Sailor Piece | Version 1.5 Beta",
+	Title = "NixHub",
+	Footer = "by : Kirsia| Sailor Piece | Version 1.0",
 	NotifySide = "Right",
-    Icon = tostring(theChosenOne),
+    Icon = "rbxassetid://91636465138754,
 	ShowCustomCursor = false,
 	AutoShow = true,
 	Center = true,
@@ -4334,7 +4333,7 @@ local Window = Library:CreateWindow({
 local Tabs = {
     Information = Window:AddTab("Information", "info"),
     Priority = Window:AddTab("Priority", "arrow-up-down"),
-	Main = Window:AddTab("Main", "box"),
+	Main = Window:AddTab("Main", "landmark"),
     Automation = Window:AddTab("Automation", "repeat-2"),
     Artifact = Window:AddTab("Artifact", "martini"),
     Dungeon = Window:AddTab("Dungeon", "door-open"),
@@ -4505,7 +4504,7 @@ local function GetData()
     local premium = true
     local expire = 9999999999
 
-    local tier = "<font color='#00bfff'>Beta User</font>"
+    local tier = "<font color='#00bfff'>User</font>"
 
     local timeStr = "Lifetime"
 
@@ -4584,32 +4583,7 @@ local HttpService = game:GetService("HttpService")
 GB.Information.Right.Others:AddButton({ 
     Text = "Join Discord Server",
     Func = function()
-
-        local inviteCode = "cUwR4tUJv3"
-        local inviteLink = "https://discord.gg/" .. inviteCode
-
-        if request then
-            pcall(function()
-                request({
-                    Url = "http://127.0.0.1:6463/rpc?v=1",
-                    Method = "POST",
-                    Headers = {
-                        ["Content-Type"] = "application/json",
-                        ["Origin"] = "https://discord.com"
-                    },
-                    Body = HttpService:JSONEncode({
-                        cmd = "INVITE_BROWSER",
-                        args = { code = inviteCode },
-                        nonce = HttpService:GenerateGUID(false)
-                    })
-                })
-            end)
-        end
-
-        if setclipboard then
-            setclipboard(inviteLink)
-        end
-
+        setclipboard("https://discord.gg/Bb7BEsYDM7")
     end
 })
 
