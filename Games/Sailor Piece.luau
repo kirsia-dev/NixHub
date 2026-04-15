@@ -4320,7 +4320,7 @@ end
 
 local Window = Library:CreateWindow({
 	Title = "NixHub",
-	Footer = "" .. assetName .. " | Dev : Kirsia | Version 1.0",
+	Footer = "" .. assetName .. " | Version 1.0",
 	NotifySide = "Right",
     Icon = "rbxasset://91636465138754",
 	ShowCustomCursor = true,
