@@ -8,7 +8,7 @@ local ReplicatedStorage = game:GetService("ReplicatedStorage")
 
 local Window = Chloex:Window({
     Title   = "ChloeX |",
-    Footer  = "Example",
+    Footer  = "99 NITF",
     Image   = "126675307043851",
     Color   = Color3.fromRGB(150, 95, 45),
     Theme   = 115390576092568,
