@@ -1,4 +1,4 @@
-local WindUI = loadstring(game:HttpGet("https://github.com/Footagesus/WindUI/releases/latest/download/main.lua"))()
+local Chloex = loadstring(game:HttpGet("https://raw.githubusercontent.com/kirsia-dev/XXXXXX/refs/heads/main/Source.lua"))()
 local Players = game:GetService("Players")
 local LocalPlayer = Players.LocalPlayer
 local Camera = workspace.CurrentCamera
@@ -6,46 +6,40 @@ local RunService = game:GetService("RunService")
 local Workspace = game:GetService("Workspace")
 local ReplicatedStorage = game:GetService("ReplicatedStorage")
 
-local Window = WindUI:CreateWindow({
-    Folder = "NixHub",
-    Title = "Nix Hub",
-    Icon = "star",
-    Author = "HIDUP BLONDE",
-    Theme = "Dark",
-    Size = UDim2.fromOffset(500, 350),
-    HasOutline = true,
-    Transparent = true,
-    BackgroundImageTransparency = 0.42,
-    ScrollBarEnabled = false,
-    User = {
-        Enabled = true,
-        Anonymous = true,
-        Callback = function()
-            print("clicked")
-        end,
-    },
-})
-
-Window:EditOpenButton({
-    Title = "Nix Hub",
-    Icon = "chevrons-left-right-ellipsis",
-    CornerRadius = UDim.new(0, 6),
-    StrokeThickness = 2,
-    Color = ColorSequence.new(Color3.fromRGB(200, 0, 255), Color3.fromRGB(0, 200, 255)),
-    Draggable = true,
+local Window = Chloex:Window({
+    Title   = "ChloeX |",
+    Footer  = "Example",
+    Image   = "126675307043851",
+    Color   = Color3.fromRGB(150, 95, 45),
+    Theme   = 115390576092568,
+    Version = 1,
 })
 
 local Tabs = {
-    Main = Window:Tab({ Title = "Main", Icon = "house" }),
-    Teleport = Window:Tab({ Title = "Teleport", Icon = "map-pin-house" }),
-    Bring = Window:Tab({ Title = "Bring ", Icon = "package" }),
-    Hitbox = Window:Tab({ Title = "Hitbox", Icon = "target" }),
-    AutoDays = Window:Tab({ Title = "Auto Farm", Icon = "sun" }),
-    KillAll = Window:Tab({ Title = "Combat", Icon = "swords" }),
-    Misc = Window:Tab({ Title = "Misc", Icon = "gift" }),
-    Esp = Window:Tab({ Title = "Esp", Icon = "eye" }),
-    Credits = Window:Tab({ Title = "Discord", Icon = "link" })
+    Home = Window:AddTab({ Title = "Home", Icon = "scan-face" }),
+    Main = Window:AddTab({ Title = "Main", Icon = "house" }),
+    Teleport = Window:AddTab({ Title = "Teleport", Icon = "map" }),
+    Bring = Window:AddTab({ Title = "Bring ", Icon = "package" }),
+    Hitbox = Window:AddTab({ Title = "Hitbox", Icon = "target" }),
+    AutoDays = Window:AddTab({ Title = "Auto Farm", Icon = "sun" }),
+    KillAll = Window:AddTab({ Title = "Combat", Icon = "swords" }),
+    Esp = Window:AddTab({ Title = "Esp", Icon = "eye" }),
+    Misc = Window:AddTab({ Title = "Misc", Icon = "layout-grid" }),
 }
+
+
+Tabs.Home:AddSubSection("Discord NixHub")
+
+Tabs.Home:AddParagraph({
+    Title = "NixHub",
+    Content = "Join Us!",
+    Icon = "discord",
+    ButtonText = "Copy Discord Link",
+    ButtonCallback = function()
+        setclipboard("https://discord.gg/ctrKrZcGym")
+    end
+})
+
 
 local spawnItemsActive = false
 local spawnItemsThread
@@ -1441,6 +1435,7 @@ Tabs.Esp:Toggle({
         toggleCategoryESP("Health", state)
     end
 })
+
 Tabs.Esp:Toggle({
     Title = "Fuel ESP",
     Default = false,
@@ -1448,6 +1443,7 @@ Tabs.Esp:Toggle({
         toggleCategoryESP("Fuel", state, ESPisFuel)
     end
 })
+
 Tabs.Esp:Toggle({
     Title = "Food ESP",
     Default = false,
@@ -1455,6 +1451,7 @@ Tabs.Esp:Toggle({
         toggleCategoryESP("Food", state, ESPisFood)
     end
 })
+
 Tabs.Esp:Toggle({
     Title = "Scrappable ESP",
     Default = false,
@@ -1462,30 +1459,11 @@ Tabs.Esp:Toggle({
         toggleCategoryESP("Scrappable", state, ESPisScrappable)
     end
 })
+
 Tabs.Esp:Toggle({
     Title = "Other ESP",
     Default = false,
     Callback = function(state)
         toggleCategoryESP("Other", state)
     end
-})
-
-
-
-
-
-Tabs.Credits:Divider()
-
-Tabs.Credits:Button({
-    Title = "JOIN DISCORD SERVER NIX HUB",
-    Description = "Click To Copy The Discord Server Link",
-    Callback = function()
-        setclipboard("https://discord.gg/UbVv3MNMU")
-        -- Notify using WindUI
-        WindUI:Notify({
-            Title = "Copied!",
-            Content = "Discord invite copied to clipboard.",
-            Duration = 3,
-        })
-    end,
 })
